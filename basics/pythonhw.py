@@ -45,3 +45,13 @@ def histogram(lst):
 
 l = [4,9,7]
 histogram(l)
+
+#===Task #6===
+def caesar_cipher(_str, key):
+    for i in _str:
+        print(chr(ord(i)+key),end='')
+    print()
+
+a = 'abcdefg'
+n = 3
+caesar_cipher(a,n)
