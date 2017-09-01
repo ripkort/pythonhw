@@ -81,4 +81,21 @@ def game(a, b):
             print("Try again! Sorry")
 
 game(2,5)
-        
+
+#===Task #9===
+def brackets_checker(_str):
+    count = 0
+    for i in _str:
+        if i == '[':
+            count += 1
+        else:
+            count -= 1
+            if count < 0:
+                return False
+    if count != 0:
+        return False
+    else:
+        return True
+
+a = '[]][[]'
+print(brackets_checker(a))
