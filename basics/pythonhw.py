@@ -37,3 +37,11 @@ def is_palindrome(_str):
 
 a = "radar"
 print(is_palindrome(a))
+
+#===Task #5===
+def histogram(lst):
+    for i in lst:
+        print('*'*i)
+
+l = [4,9,7]
+histogram(l)
