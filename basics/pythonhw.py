@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import random
+
 #===Task #1===
 def hello_string(arg):
     print('Hello, {}'.format(arg))
@@ -66,3 +68,17 @@ def diaginal_reverse(matrix):
 
 mat = [[1,2,3],[4,5,6],[7,8,9]]
 diaginal_reverse(mat)
+
+#===Task #8===
+def game(a, b):
+    number = random.randint(a,b)
+    while True:
+        print('Input number you think was generated from {} till {} :'.format(a,b))
+        if int(input()) == number:
+            print("Finally, congratulations!")
+            break
+        else:
+            print("Try again! Sorry")
+
+game(2,5)
+        
