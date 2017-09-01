@@ -2,6 +2,13 @@
 
 import random
 
+num = 1
+def task_number():
+    global num
+    print('==========Task #{}============='.format(num))
+    num += 1
+
+task_number()
 #===Task #1===
 def hello_string(arg):
     print('Hello, {}'.format(arg))
@@ -9,6 +16,7 @@ def hello_string(arg):
 a = "Vasya"
 hello_string(a)
 
+task_number()
 #===Task #2===
 def sum(_list):
     count = 0
@@ -26,6 +34,7 @@ l = [1,2,3,4]
 print(sum(l))
 print(multiply(l))
 
+task_number()
 #===Task #3===
 def reverse(_str):
     return _str[::-1]
@@ -33,6 +42,7 @@ def reverse(_str):
 a = "I am testing"
 print(reverse(a))
 
+task_number()
 #===Task #4===
 def is_palindrome(_str):
     return _str == _str[::-1]
@@ -40,6 +50,7 @@ def is_palindrome(_str):
 a = "radar"
 print(is_palindrome(a))
 
+task_number()
 #===Task #5===
 def histogram(lst):
     for i in lst:
@@ -48,6 +59,7 @@ def histogram(lst):
 l = [4,9,7]
 histogram(l)
 
+task_number()
 #===Task #6===
 def caesar_cipher(_str, key):
     for i in _str:
@@ -58,6 +70,7 @@ a = 'abcdefg'
 n = 3
 caesar_cipher(a,n)
 
+task_number()
 #===Task #7===
 def diaginal_reverse(matrix):
     for i in range(len(matrix)):
@@ -69,6 +82,7 @@ def diaginal_reverse(matrix):
 mat = [[1,2,3],[4,5,6],[7,8,9]]
 diaginal_reverse(mat)
 
+task_number()
 #===Task #8===
 def game(a, b):
     number = random.randint(a,b)
@@ -82,6 +96,7 @@ def game(a, b):
 
 game(2,5)
 
+task_number()
 #===Task #9===
 def brackets_checker(_str):
     count = 0
@@ -100,6 +115,7 @@ def brackets_checker(_str):
 a = '[]][[]'
 print(brackets_checker(a))
 
+task_number()
 #===Task #10===
 def char_freq(_str):
     result = {}
@@ -112,3 +128,10 @@ def char_freq(_str):
         print('{} = {}'.format(key,value))
 
 char_freq('abbabcbdbabdbdbabababcbcbab')
+
+task_number()
+#===Task #11===
+def dec_to_bin(_int):
+    return "{0:b}".format(_int)
+
+print(dec_to_bin(20))
