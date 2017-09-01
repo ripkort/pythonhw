@@ -99,3 +99,16 @@ def brackets_checker(_str):
 
 a = '[]][[]'
 print(brackets_checker(a))
+
+#===Task #10===
+def char_freq(_str):
+    result = {}
+    for i in _str:
+        if i not in result:
+            result[i] = 1
+        else:
+            result[i] += 1
+    for key, value in result.items():
+        print('{} = {}'.format(key,value))
+
+char_freq('abbabcbdbabdbdbabababcbcbab')
