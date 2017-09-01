@@ -30,3 +30,10 @@ def reverse(_str):
 
 a = "I am testing"
 print(reverse(a))
+
+#===Task #4===
+def is_palindrome(_str):
+    return _str == _str[::-1]
+
+a = "radar"
+print(is_palindrome(a))
