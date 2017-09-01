@@ -24,3 +24,9 @@ l = [1,2,3,4]
 print(sum(l))
 print(multiply(l))
 
+#===Task #3===
+def reverse(_str):
+    return _str[::-1]
+
+a = "I am testing"
+print(reverse(a))
