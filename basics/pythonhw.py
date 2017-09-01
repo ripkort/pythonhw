@@ -55,3 +55,14 @@ def caesar_cipher(_str, key):
 a = 'abcdefg'
 n = 3
 caesar_cipher(a,n)
+
+#===Task #7===
+def diaginal_reverse(matrix):
+    for i in range(len(matrix)):
+        for j in range(i+1,len(matrix)):
+            matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
+    for x in matrix:
+        print(' '.join(map(str, x)))    
+
+mat = [[1,2,3],[4,5,6],[7,8,9]]
+diaginal_reverse(mat)
