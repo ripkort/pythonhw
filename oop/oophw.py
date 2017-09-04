@@ -15,11 +15,11 @@ class Employee(object):
 
     def get_salary(self):
         final_salary = self.salary
-        if self.experiance > 2:
-            final_salary += 200
-        elif self.experiance > 3:
+        if self.experiance > 3:
             final_salary *= 1.2
             final_salary += 500
+        elif self.experiance > 2:
+            final_salary += 200
         return final_salary
 
 class Developer(Employee):
@@ -50,7 +50,7 @@ class Manager(Employee):
 
     def man_salary(self):
         final_salary = self.get_salary()
-        if len(filter(lambda emp: type(emp) is Developer, self.employees)) > len(self.employees) / 2:
+        if len([filter(lambda emp: type(emp) is Developer, self.employees)])  > len(self.employees) / 2:
             final_salary *= 1.1
         if len(self.employees) > 5:
             final_salary += 200
@@ -85,4 +85,5 @@ man1.add_emp(dev1)
 man1.add_emp(dev2)
 dep1 = Department(man1)
 dep1.provide_salary()
+print(man1.man_salary())
 print(dev1)
