@@ -10,11 +10,14 @@ class Employee(object):
         self.experiance = experiance
         self.manager = manager
 
+    def __repr__(self):
+        return self.first_name + ' ' + self.second_name + ' manager: ' + self.manager.first_name + ' ' + self.manager.second_name + ' experiance: ' + str(self.experiance)
+
     def get_salary(self):
         final_salary = self.salary
         if self.experiance > 2:
             final_salary += 200
-        elif self.experiance > 5:
+        elif self.experiance > 3:
             final_salary *= 1.2
             final_salary += 500
         return final_salary
@@ -31,7 +34,7 @@ class Designer(Employee):
         self.effec_coef = effec_coef
     
     def get_salary(self):
-        return self.get_salary() * self.effec_coef
+        return self.salary * self.effec_coef
 
 class Manager(Employee):
     
@@ -45,7 +48,7 @@ class Manager(Employee):
     def get_employees(self):
         return self.employees
 
-    def get_salary(self):
+    def man_salary(self):
         final_salary = self.get_salary()
         if len(filter(lambda emp: type(emp) is Developer, self.employees)) > len(self.employees) / 2:
             final_salary *= 1.1
@@ -53,32 +56,33 @@ class Manager(Employee):
             final_salary += 200
         elif len(self.employees) > 10:
             final_salary += 500
+        return final_salary
 
 
     def add_emp(self, emp):
         if emp not in self.employees:
-            self.employess.append(emp)
+            self.employees.append(emp)
 
-    def remove_emp(self, emp):
+    def remove_emp(self, *emp):
         if emp not in self.employees:
             self.employess.remove(emp)
 
 class Department(object):
-    def __init__(self, managers=None):
-        if managers is None:
-            self.managers = []
-        else:
-            self.managers = managers
+    def __init__(self, *managers):
+        self.managers = managers
 
     def provide_salary(self):
-        for i in range(len(self.managers)):
-            for j in range(len(self.managers[i].get_employees())):
-                employee = self.managers[i].employees[j]
-                print(employee.first_name + " " + employee.second_name + ": got salary:" + str(employee.salary))
+        for i in self.managers:
+            for j in i.employees:
+                print(j.first_name + " " + j.second_name + ": got salary:" + str(j.get_salary()))
 
 man1 = Manager('Big', 'Bos', 3000, 10, None)
-des1 = Designer('Petya', 'Vasin', 2000, 6, man1, 1)
+des1 = Designer('Petya', 'Vasin', 2000, 6, man1, 1.1)
 dev1 = Developer('Vasya', 'Petrov', 1000, 4, man1)
 dev2 = Developer('Maxim', 'Pupkin', 1500, 4, man1)
-dep1 = Department([man1])
+man1.add_emp(des1)
+man1.add_emp(dev1)
+man1.add_emp(dev2)
+dep1 = Department(man1)
 dep1.provide_salary()
+print(dev1)
